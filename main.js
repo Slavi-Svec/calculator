@@ -1,15 +1,19 @@
+const buttons = document.getElementsByClassName("calc-btn")
+let screen = document.getElementsByClassName("calc-display-val")[0]
+const equals = document.getElementById("calc-equals")
+const sums = []
 
-// const btnn = document.getElementById("calc-btn calc-btn-operator column")
-// btnn.onclick = showAlert
+for (let i = 0; i < buttons.length; i++){
+  buttons[i].addEventListener('click', event => {
+    const button = buttons[i].innerText
+    if (button !== '=') {
+      sums.push(button)
+    }
+    screen.innerText = sums.join("")
+  })
+}
 
-// function showAlert(event) {
-//   alert("button clicked")
-// }
-
-
-const buttons = document.getElementsByClassName("calc-multiply");
-
-buttons.addEventListener('click', event => {
-  console.log("HELLO")
-});
+equals.addEventListener("click", function(){
+  screen.innerText = eval(sums.join(''))
+})
 
