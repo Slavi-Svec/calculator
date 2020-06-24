@@ -2,6 +2,7 @@ const buttons = document.getElementsByClassName("calc-btn")
 let screen = document.getElementsByClassName("calc-display-val")[0]
 const equals = document.getElementById("calc-equals")
 const clear = document.getElementById("calc-clear")
+const backSpace = document.getElementById("calc-backspace")
 let display = []
 
 for (let i = 0; i < buttons.length; i++){
@@ -10,9 +11,9 @@ for (let i = 0; i < buttons.length; i++){
     const shouldNotRenderZero = display[0] === '0'
       && button === '0'
       && display.length < 2
-    const hasDuplicates = (/([.]).*?\1/).test(display)
+    // const hasDuplicates = (/([.]).*?\1/).test(display)
 
-    console.log('display=', display, 'hasDuplicates=', hasDuplicates)
+    // console.log('display=', display, 'hasDuplicates=', hasDuplicates)
 
     if (shouldNotRenderZero || button === '=') {
       return
@@ -22,7 +23,9 @@ for (let i = 0; i < buttons.length; i++){
   })
 }
 
-equals.addEventListener("click", function(){
+
+
+equals.addEventListener("click", () => {
   screen.innerText = eval(display.join(''))
 })
 
@@ -31,9 +34,20 @@ clear.addEventListener("click", () => {
   display = []
 });
 
+backSpace.addEventListener('click', () => {
+  screen.innerText = screen.innerText.slice(1, -1);
+  console.log(screen)
+})
 
 
 
-const str= [".", "."]
-var hasDuplicates = (/([.]).*?\1/).test(str)
-console.log("repeating string ", hasDuplicates)
+// const str= [".", "."]
+// var hasDuplicates = (/([.]).*?\1/).test(str)
+// console.log("repeating string ", hasDuplicates)
+
+
+// let input = buttons
+// if (!/\./.test(keysPressed)) {
+//   // no dot pressed before now, so add to keysPressed
+//   keysPressed += input; // adds input because there was not a previous dot in keysPressed
+// }
