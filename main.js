@@ -41,13 +41,3 @@ backSpace.addEventListener('click', () => {
 
 
 
-// const str= [".", "."]
-// var hasDuplicates = (/([.]).*?\1/).test(str)
-// console.log("repeating string ", hasDuplicates)
-
-
-// let input = buttons
-// if (!/\./.test(keysPressed)) {
-//   // no dot pressed before now, so add to keysPressed
-//   keysPressed += input; // adds input because there was not a previous dot in keysPressed
-// }
