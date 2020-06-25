@@ -11,9 +11,6 @@ for (let i = 0; i < buttons.length; i++){
     const shouldNotRenderZero = display[0] === '0'
       && button === '0'
       && display.length < 2
-    // const hasDuplicates = (/([.]).*?\1/).test(display)
-
-    // console.log('display=', display, 'hasDuplicates=', hasDuplicates)
 
     if (shouldNotRenderZero || button === '=') {
       return
@@ -23,10 +20,9 @@ for (let i = 0; i < buttons.length; i++){
   })
 }
 
-
-
 equals.addEventListener("click", () => {
   screen.innerText = eval(display.join(''))
+  // console.log(screen)
 })
 
 clear.addEventListener("click", () => {
@@ -34,10 +30,10 @@ clear.addEventListener("click", () => {
   display = []
 });
 
+// TODO fix backspace 
 backSpace.addEventListener('click', () => {
-  screen.innerText = screen.innerText.slice(1, -1);
-  console.log(screen)
+  (0,screen.length -1)
+return display.value.screen.substring(0,screen.length -1)
 })
-
 
 
